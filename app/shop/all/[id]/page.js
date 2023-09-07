@@ -24,9 +24,9 @@ export function generateStaticParams() {
 
 export default function Page ({params}) {
 
-    const cartItems = useSelector(state => state.cart.cartItems)
-    const totalQuantity = useSelector(state => state.cart.totalQuantity)
-    const totalPrice = useSelector(state => state.cart.totalPrice)
+    const cartItems = useSelector(state => state.cartItems)
+    const totalQuantity = useSelector(state => state.totalQuantity)
+    const totalPrice = useSelector(state => state.totalPrice)
     const dispatch = useDispatch()
     const {id} = params
 

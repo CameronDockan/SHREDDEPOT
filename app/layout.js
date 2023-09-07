@@ -1,7 +1,7 @@
+// 'use client'
+
 import './globals.css'
 import { Montserrat } from 'next/font/google'
-import Nav from '@/components/Nav'
-import Footer from '@/components/Footer'
 import Script from 'next/script'
 import { Providers } from './globalRedux/provider'
 
@@ -16,12 +16,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Providers>
-        <body className={mont.className}>
-            {children}
-            {/* <Footer /> */}
-        </body>
-      </Providers>
+          <body className={mont.className}>
+          <Providers>
+
+              {children}
+              {/* <Footer /> */}
+          </Providers>
+          </body>
 
 
       <Script 

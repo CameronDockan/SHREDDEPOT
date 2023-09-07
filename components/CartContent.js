@@ -6,8 +6,8 @@ import { addToCart, removeFromCart, completeRemoval } from "@/app/globalRedux/fe
 export default function CartContent () {
 
     // const totalQuantity = useSelector(state => state.cart.totalQuantity)
-    const cartItems = useSelector(state => state.cart.cartItems)
-    const totalPrice = useSelector(state => state.cart.totalPrice)
+    const cartItems = useSelector(state => state.cartItems)
+    const totalPrice = useSelector(state => state.totalPrice)
     const dispatch = useDispatch()
 
     let cartList = cartItems.map(i => {
@@ -27,7 +27,7 @@ export default function CartContent () {
                 </div>
 
                 <div className="quantity_ORG">
-                    <button
+                    <button className="increment_cart_btn"
                         onClick={() => dispatch(removeFromCart(
                             {
                                 id: i.id,

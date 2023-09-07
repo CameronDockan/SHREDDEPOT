@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 export default function NavWhite () {
 
-    const totalQuantity = useSelector(state => state.cart.totalQuantity)
+    const totalQuantity = useSelector(state => state.totalQuantity)
 
     return (
         <nav className="primary_nav" id="alternate_design_nav_white">

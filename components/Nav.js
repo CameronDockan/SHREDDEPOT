@@ -2,10 +2,34 @@
 
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
+import {useState, useEffect} from 'react'
 
 export default function Nav () {
 
-    const totalQuantity = useSelector(state => state.cart.totalQuantity)
+    const [burgerIsActive, setBIA] = useState(false);
+
+    let totalQuantity = useSelector(state => state.totalQuantity)
+
+    const handleClick = () => {
+        setBIA(!burgerIsActive)
+    }
+
+    // resize
+
+    const [belowThousand, setBT] = useState(false)
+
+    console.log(belowThousand)
+
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 1000) setBT(true)
+            else setBT(false)
+        }
+
+        window.addEventListener('resize', handleResize)
+        window.addEventListener('load', handleResize)
+    })
 
     return (
         <nav className="primary_nav" id="alternate_design_nav">
@@ -23,10 +47,10 @@ export default function Nav () {
                 <li className="nav_list_items"><Link href="/contact">CONTACT</Link></li>
                 <li className="nav_list_items" id="cart"><Link href="/cart">{totalQuantity && totalQuantity > 0 ? `CART (${totalQuantity})` : `CART`}</Link></li>
             </ul>
-            <div className="burger">
-                <div className="line1"></div>
-                <div className="line2"></div>
-                <div className="line3"></div>
+            <div onClick={handleClick} className={burgerIsActive ? "burger active" : "burger inactive"}>
+                <div className={burgerIsActive ? "line1 active" : "line1 inactive"}></div>
+                <div className={burgerIsActive ? "line2 active" : "line2 inactive"}></div>
+                <div className={burgerIsActive ? "line3 active" : "line3 inactive"}></div>
                 <p className="burger-cart-text">{totalQuantity > 0 && `(${totalQuantity})`}</p>
             </div>
         </nav>
