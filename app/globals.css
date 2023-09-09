@@ -11,6 +11,7 @@ body {
 }
 
 /* -- NAVIGATION -- */
+
 nav {
     display: flex;
     justify-content: space-around;
@@ -41,12 +42,15 @@ nav {
     padding: 10px;
 }
 
-nav ul {
+/* aka nav ul */
+.nav_links_ul {
     list-style: none;
     display: flex;
     justify-content: space-around;
     width: 70%;
 }
+
+
 
 /* tested display: inline-block; */
 nav ul li {
@@ -105,50 +109,45 @@ nav ul li ul li a:hover {
     display: none;
 }
 
-.burger-cart-text {
+.cart_quantity_container {
     display: none;
 }
 
+.mobile_ul {
+    display: none;
+}
+
+.decoy {
+    display: none;
+}
+
+.white {
+    background-color: aliceblue;
+}
+
+.white * {
+    background-color: aliceblue;
+}
+
+.white a {
+    background-color: rgba(0,0,0,.0);
+}
+
 @media screen and (max-width: 1000px) {
+
+    .primary_nav.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 56;
+    }
+
     .logo {
         margin: auto;
     }
 
     .nav_links_ul {
-        position: absolute;
-        top: 50px;
-        right: 0;
-        left: 0;
-        width: 100%;
-        height: 95vh;
-        min-height: 900px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: bisque;
-        z-index: 99;
-        /* transform: translateX(100%); */
-        transition: all 1s ease 0s;
-        opacity: 0;
-    }
-
-    /* this is also called .shop_list_ul */
-    .primary_nav ul li ul {
-        list-style: none;
-        height: 100px;
-        top: 30px;
-        left: -160px;
-        display: none;
-        background-color: none;
-        margin: auto;
-        padding: 15px;
-    }
-    
-    .primary_nav ul li ul li {
-        margin: auto;
-        align-items: center;
-        align-content: center;
-        text-align: center;
         display: none;
     }
 
@@ -160,6 +159,7 @@ nav ul li ul li a:hover {
         aspect-ratio: 1/1;
         width: 50px;
         margin-right: 15px;
+        z-index: 56;
     }
 
     .burger div {
@@ -240,72 +240,87 @@ nav ul li ul li a:hover {
 
     }
 
-    .burger-cart-text {
-        display: block;
+    #cart_quantity_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: aliceblue;
+        /* border: 2px solid rgb(255, 0, 0); */
+        border-radius: 50%;
+        aspect-ratio: 1/1;
         position: absolute;
-        top: 50%;
+        top: 100%;
         left: 50%;
-        transform: translate(50%, -50%);
+        transform: translate(50%, -75%);
+        height: 20px;
+        width: 20px;
+        padding: 0;
+        margin: 0;
     }
 
-    .nav_active {
-        transform: translateX(0%);
-        opacity: 1;
-        transition: all 1s ease 0s;
+    /* ran into a centering bug so I just used 
+    postion:absolute and hard-placed it */
+    #cart_quantity_container p {
+        position: absolute;
+        top: calc(100% - 5px);
+        left: calc(50% - 12px);
+        transform: translate(50%, -75%);
+
     }
 
-    /*  FIXES THE OVERLAP ISSUES IN MOBILE NAV DESPLAY */
-    .nav_active li:nth-child(3) {
-        z-index: 55;
+    /* decoy.active prevents the body of content from filling up
+        the navs position when nav becomes position:fixed;
+     */
+    .decoy.inactive {
+        display: none;
     }
-    /*  FIXES THE OVERLAP ISSUES IN MOBILE NAV DESPLAY */
-    .nav_active li:nth-child(4) {
-        z-index: 55;
-    }
-    /*  FIXES THE OVERLAP ISSUES IN MOBILE NAV DESPLAY */
-    .nav_active li:nth-child(5) {
-        z-index: 55;
-    }
-
-    .nav_active li ul {
+    .decoy.active {
         display: block;
-        position: absolute;
-        transform: translateX(52%);
+        height: 61px;
+        width: 100vw;
+
+    }
+
+    .mobile_ul {
+        position: fixed;
+        display: flex;
+        top: 61px;
+        width: 100vw;
+        height: 95vh;
+        background-color: bisque;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        transition: opacity .5s ease;
+    }
+
+    .mobile_ul.inactive {
+        opacity: 0;
+        z-index: -1;
+    }
+
+    .mobile_ul.active {
         opacity: 1;
-        background: none;
-        width: auto;
-        box-shadow: none;
+        z-index: 56;
     }
 
-    .nav_active li ul li a {
-        text-transform: lowercase;
+    .mobile_ul.white {
+        background-color: aliceblue;
     }
 
-    .shop_active {
-        display: block;
-        opacity: 1;
-        transition: all 1s ease 0s;
+    #shop_nav_link {
+        position: relative;
     }
 
-    /* #alternate_design_nav ul {
+    #shop_nav_link ul {
         position: absolute;
-        top: 80px;
-        height: 100%;
-    }
-    #alternate_design_nav ul li ul {
-        position: absolute;
-        top: 64px;
+        top: 0px;
+        left: 100%;
     }
 
-    #alternate_design_nav_white ul {
-        position: absolute;
-        top: 80px;
-        height: 100%;
-    }
-    #alternate_design_nav_white ul li ul {
-        position: absolute;
-        top: 64px;
-    } */
+
 } /* END OF @MEDIA */
 
 
@@ -462,7 +477,6 @@ nav ul li ul li a:hover {
     height: 60%;
     margin: 10px;
     position: relative;
-    /* border: 5px solid blue; */
 }
 
 .product_img_links_div-img {
@@ -496,6 +510,7 @@ nav ul li ul li a:hover {
     text-align: center;
     cursor: pointer;
     text-decoration: none;
+    transition: all .25s ease;
 }
 
 .product_img_links_container a:hover {
@@ -536,6 +551,7 @@ nav ul li ul li a:hover {
     background-color: white;
     text-align: center;
     overflow: hidden;
+    transition: all .25s ease;
 }
 
 .new_arrivals_img_div:hover {
@@ -686,6 +702,7 @@ nav ul li ul li a:hover {
     justify-content: space-between;
     width: 99%;
     margin: 0 auto;
+    padding: 100px;
 }
 
 .product_items_img_div {
@@ -697,6 +714,7 @@ nav ul li ul li a:hover {
     border-radius: 10px;
     cursor: pointer;
     background-color: white;
+    transition: all .25s ease;
 }
 
 .product_items_img_div_img {
@@ -713,7 +731,7 @@ nav ul li ul li a:hover {
 .product_items_img_div:hover {
     width: 24%;
     height: auto;
-}
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);}
 
 .product_items_img_div:hover p {
     font-weight: bolder;
@@ -776,15 +794,37 @@ body#product1 {
     color: black;
 }
 
+/* ul */
 #product_path {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
     margin-right: auto;
     margin-left: 40px;
-    justify-content: flex-start;
+    /* border: 1px solid red; */
+}
+
+#product_path li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #product_path li ion-icon {
     font-size: 25px;
     color: black;
+}
+
+#product_path li a,
+#product_path li p {
+    padding: 0 15px;
+}
+
+.icon_centering_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #current_page_rep {
@@ -794,11 +834,10 @@ body#product1 {
 #to-and-fro_product_nav {
     margin-right: 40px;
     margin-left: auto;
+    list-style: none;
+    display: flex;
     justify-content: flex-end;
-}
-
-#to-and-fro_product_nav li p {
-    color: black;
+    /* border: 1px solid red; */
 }
 
 /* PRODUCT SPECS */
@@ -923,7 +962,7 @@ body#product1 {
     justify-content: center;
 
     /*border: solid black;*/
-    border-bottom: solid black;
+    /* border-bottom: solid black; */
     left: 50%;
     transform: translateX(-50%);
     font-size: 100px;
@@ -939,6 +978,7 @@ body#product1 {
     object-fit: cover;
     height: 500px;
     width: 100%;
+    filter: brightness(50%)
 }
 
 #about_script_container {
@@ -946,7 +986,9 @@ body#product1 {
     /*IMGS VERTICALLY ALIGNED USING FLEX*/
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: row;
+    /* border: 3px solid pink; */
     
 }
 
@@ -955,28 +997,35 @@ body#product1 {
     /*border: solid blue;*/
 }
 
-.about_script_flex_box h1 {
+.about_script_flex_box1 h1 {
     font-size: 60px;
 }
 
-.about_script_flex_box p {
+.about_script_flex_box1 p {
     font-size: 25px;
 }
 
-.about_script_flex_box img {
+.about_script_flex_box2 img {
     object-fit: cover;
-    max-height: 250px;
-    max-width: 100%;
+    max-height: 200px;
+    max-width: 150px;
+    object-fit: scale-down;
     /* makes space between imgs but shrinks them */
     padding-top: 20px;
 }
 
-.about_script_flex_box {
-    flex-basis: 45%;
+.about_script_flex_box1 {
+    padding: 20px;
+    /* border: 1px solid red; */
+    width: 50%;
 }
 
-#about_script_flex_box2 {
-    text-align: center;
+.about_script_flex_box2 {
+    /* border: 5px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 /* CONTACT PAGE */
@@ -1165,14 +1214,11 @@ TEXT TO MOVE INDEPENDENT OF TRANSPARENT BACKGROUND OF TEXT_WRAPPER*/
     margin: 0 10px;
 }
 
-.decrement_btn:hover {
+.decrement_btn,
+.increment_btn,
+.clear_btn {
     cursor: pointer;
 }
-
-.increment_btn:hover {
-    cursor: pointer;
-}
-
 .remove_btn:hover {
     cursor:pointer
 }

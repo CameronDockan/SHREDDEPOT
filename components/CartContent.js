@@ -27,7 +27,7 @@ export default function CartContent () {
                 </div>
 
                 <div className="quantity_ORG">
-                    <button className="increment_cart_btn"
+                    <button className="decrement_btn"
                         onClick={() => dispatch(removeFromCart(
                             {
                                 id: i.id,
@@ -45,6 +45,7 @@ export default function CartContent () {
                     </button>
                     <span className="product_quant">{i.quantity}</span>
                     <button
+                        className="increment_btn"
                         onClick={() => dispatch(addToCart(
                             {
                                 id: i.id,
@@ -67,6 +68,7 @@ export default function CartContent () {
 
                 <div className="remove_from_cart">
                     <button
+                        className="clear_btn"
                         onClick={() => dispatch(completeRemoval(
                             {
                                 id: i.id,

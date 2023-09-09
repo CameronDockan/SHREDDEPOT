@@ -1,7 +1,10 @@
 import Image from "next/image"
 import aboutPageIMG from '/public/images/about_page_img.jpg'
-import techLogo1 from '/public/images/logo1.png'
-import techLogo2 from 'public/images/logo2.svg.png'
+import techLogo1 from '/public/images/logos/html_logo.png'
+import techLogo2 from 'public/images/logos/css_logo.png'
+import techLogo3 from 'public/images/logos/react_logo1.png'
+import techLogo4 from 'public/images/logos/redux_logo.png'
+import techLogo5 from 'public/images/logos/nextjs_logo.png'
 
 export default function AboutContent () {
     return (
@@ -15,22 +18,32 @@ export default function AboutContent () {
                 <h1>SHRED DEPOT</h1>
             </div>
             <div id="about_script_container">
-                <div class="about_script_flex_box">
+                <div className="about_script_flex_box1">
                     <h1>ABOUT</h1>
-                    <p>サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン
-                    サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン
-                    サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン
-                    サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン＿サーフィン
+                    <p>This is a mock ecommerce website initially written in Vanilla JavaScript
+                         and then converted into a React, Redux, and NextJS project utilizing vanilla CSS.
                     </p>
                 </div>
-                <div class="about_script_flex_box" id="about_script_flex_box2">
+                <div className="about_script_flex_box2">
                     <Image
                         src={techLogo1}
-                        alt="JavaScript logo"
+                        alt="html logo"
                     />
                     <Image
                         src={techLogo2}
-                        alt="HTML and CSS logos"
+                        alt="css logo"
+                    />
+                    <Image
+                        src={techLogo3}
+                        alt="react logo"
+                    />
+                    <Image
+                        src={techLogo4}
+                        alt="redux logo"
+                    />
+                    <Image
+                        src={techLogo5}
+                        alt="nextjs logo"
                     />
                 </div>
             </div>

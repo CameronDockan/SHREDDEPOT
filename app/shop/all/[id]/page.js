@@ -57,13 +57,17 @@ export default function Page ({params}) {
                         <Link href="/">HOME</Link>
                     </li>
                     <li>
-                        <ion-icon name="arrow-forward-sharp"></ion-icon>
+                        <div className="icon_centering_div">
+                            <ion-icon name="arrow-forward-sharp"></ion-icon>
+                        </div>
                     </li>
                     <li>
                         <Link href="/shop/all">SHOP</Link>
                     </li>
                     <li>
-                        <ion-icon name="arrow-forward-sharp"></ion-icon>
+                        <div className="icon_centering_div">
+                            <ion-icon name="arrow-forward-sharp"></ion-icon>
+                        </div>
                     </li>
                     <li>
                         <p id="current_page_rep">{prod.name}</p>
