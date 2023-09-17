@@ -14,6 +14,9 @@ export default function ContactContent () {
                     <p>
                     CONTACT
                     </p>
+                    <p>
+                    (fictional info)
+                    </p>
                     <br />
                     <br />
                     <p>

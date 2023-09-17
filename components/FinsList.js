@@ -18,7 +18,7 @@ export default function LeashesList () {
                         height={fin.imgH}
                     />
                 </Link>
-                <p>JOSH HALL PISEAS</p>
+                <p>{fin.name}</p>
             </div>
         )
     })

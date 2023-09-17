@@ -50,8 +50,12 @@ export default function Nav () {
                     <div className={burgerIsActive ? "line1 active" : "line1 inactive"}></div>
                     <div className={burgerIsActive ? "line2 active" : "line2 inactive"}></div>
                     <div className={burgerIsActive ? "line3 active" : "line3 inactive"}></div>
-                    <div id='cart_quantity_container'>
-                        <p>{totalQuantity > 0 && `${totalQuantity}`}</p>
+                    
+                    <div id={totalQuantity > 0 ? 'cart_quantity_container' : 'cart_quantity_container_invisible'}>
+                        <p>
+                            {totalQuantity > 0 && `(${totalQuantity})`}
+                            
+                        </p>
                     </div>
                 </div>
 

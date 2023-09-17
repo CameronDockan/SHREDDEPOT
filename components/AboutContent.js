@@ -20,9 +20,15 @@ export default function AboutContent () {
             <div id="about_script_container">
                 <div className="about_script_flex_box1">
                     <h1>ABOUT</h1>
-                    <p>This is a mock ecommerce website initially written in Vanilla JavaScript
-                         and then converted into a React, Redux, and NextJS project utilizing vanilla CSS.
+                    <p>This is a mock ecommerce website I initially wrote in Vanilla JavaScript
+                         and then later converted into a React, Redux, and NextJS project utilizing vanilla CSS.
                     </p>
+                    <p>
+                        Honestly, it would've been less of a headache if I had started from scratch. 
+                        However, it was good practice working with an older code base and updating it.
+                    </p>
+                    
+
                 </div>
                 <div className="about_script_flex_box2">
                     <Image

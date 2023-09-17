@@ -360,7 +360,7 @@ let products = [
         name: "DANE REYNOLDS SIGNATURE STANDARD LEASH TURQUOISE",
         price: 34.00,
         instock: 100,
-        shaper: "N/A",
+        shaper: "CHANNEL ISLANDS",
         dimensions: "Length: 6\'1/4\", Diameter: 1/4\"",
         description: `Dane Reynold\'s signature leash. Updated packaging and colorways, Dane opted to stick with the cylinder cord liking the more traditional feel.  
 
@@ -388,10 +388,10 @@ let products = [
     {
         id: 19,
         clss: 'product_items_img_div',
-        name: "CHANNEL ISLANDS STANDARD LEASH BLACK",
+        name: "STANDARD LEASH BLACK",
         price: 34.00,
         instock: 100,
-        shaper: "N/A",
+        shaper: "CHANNEL ISLANDS",
         dimensions: "Length: 6\'1/4\", Diameter: 1/4\"",
         description: `Our entire line of CI Hex Cord leashes has been updated and improved with an all-new cuff that is so light and supple you almost forget you are wearing it. Combined with CI\'s iconic hexagonal cord shape - which kinks, stretches, and drags less than traditional cylinder shaped cords - makes these the next best thing to not wearing one.
 
@@ -419,10 +419,10 @@ let products = [
     {
         id: 20,
         clss: 'product_items_img_div',
-        name: "CHANNEL ISLANDS STANDARD LEASH YELLOW",
+        name: "STANDARD LEASH YELLOW",
         price: 34.00,
         instock: 100,
-        shaper: "N/A",
+        shaper: "CHANNEL ISLANDS",
         dimensions: "Length: 6\'1/4\", Diameter: 1/4\"",
         description: `Our entire line of CI Hex Cord leashes has been updated and improved with an all-new cuff that is so light and supple you almost forget you are wearing it. Combined with CI\'s iconic hexagonal cord shape - which kinks, stretches, and drags less than traditional cylinder shaped cords - makes these the next best thing to not wearing one.
 
@@ -450,7 +450,7 @@ let products = [
     {
         id: 21,
         clss: 'product_items_img_div',
-        name: "JOSH HALL QUAD KHAKI",
+        name: "QUAD KHAKI",
         price: 110.00,
         instock: 100,
         shaper: "JOSH HALL",
@@ -482,7 +482,7 @@ let products = [
     {
         id: 22,
         clss: 'product_items_img_div',
-        name: "JOSH HALL SIDE BITES",
+        name: "SIDE BITES",
         price: 120.00,
         instock: 100,
         shaper: "JOSH HALL",
@@ -512,7 +512,7 @@ let products = [
     {
         id: 23,
         clss: 'product_items_img_div',
-        name: "JOSH HALL TWIN",
+        name: "TWIN",
         price: 105.00,
         instock: 100,
         shaper: "JOSH HALL",
@@ -618,7 +618,7 @@ let products = [
     {
         id: 27,
         clss: 'product_items_img_div',
-        name: "TYLER WARREN PIVOT 10.5",
+        name: "PIVOT 10.5",
         price: 104.00,
         instock: 100,
         shaper: "TYLER WARREN",
@@ -644,7 +644,7 @@ let products = [
     {
         id: 28,
         clss: 'product_items_img_div',
-        name: "TYLER WARREN PIVOT 10.25",
+        name: "PIVOT 10.25",
         price: 100.00,
         instock: 100,
         shaper: "TYLER WARREN",

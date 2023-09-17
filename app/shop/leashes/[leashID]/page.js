@@ -107,7 +107,7 @@ export default function Page ({params}) {
                         <h1>{leash.name}</h1>
                         <p id="price">{`$${leash.price} USD`}</p>
                         <div className="cart_button_container" id="add_product_one">
-                        <button onClick={() => dispatch(addToCart(
+                            <button onClick={() => dispatch(addToCart(
                                 {
                                 id: leash.id,
                                 name: leash.name,
@@ -118,10 +118,12 @@ export default function Page ({params}) {
                                 imgW: leash.imgW,
                                 imgH: leash.imgH,
                                 }
-                                ))}>ADD TO CART</button>
-                            <p>{JSON.stringify(cartItems)}</p>
+                                ))}>ADD TO CART
+                            </button>
+                            {/* REDUX DATA */}
+                            {/* <p>{JSON.stringify(cartItems)}</p>
                             <p>{totalQuantity}</p>
-                            <p>{JSON.stringify(totalPrice)}</p>
+                            <p>{JSON.stringify(totalPrice)}</p> */}
                         </div>
                         <p>Shaper: {leash.shaper}</p>
                         <p>Dimensions - {leash.dimensions}</p>

@@ -18,10 +18,9 @@ export default function ProductsList () {
                         height={prod.imgH}
                     />
                 </Link>
-                <p>JOSH HALL PISEAS</p>
+                <p>{prod.name}</p>
             </div>
         )
-        
     })
 
     return (

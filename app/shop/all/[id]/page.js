@@ -114,10 +114,12 @@ export default function Page ({params}) {
                                 imgW: prod.imgW,
                                 imgH: prod.imgH,
                                 }
-                                ))}>ADD TO CART</button>
-                            <p>{JSON.stringify(cartItems)}</p>
+                                ))}>ADD TO CART
+                            </button>
+                            {/* REDUX DATA */}
+                            {/* <p>{JSON.stringify(cartItems)}</p>
                             <p>{totalQuantity}</p>
-                            <p>{JSON.stringify(totalPrice)}</p>
+                            <p>{JSON.stringify(totalPrice)}</p> */}
                         </div>
                         <p>Shaper: {prod.shaper}</p>
                         <p>Dimensions - {prod.dimensions}</p>

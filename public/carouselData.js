@@ -55,7 +55,7 @@ const carouselItems = [
         slideOpacity: 0,
         width: 1200,
         height: 600,
-        description: 'A chance to win a all-inclusive surf trip to New Zealand with your purchase.',
+        description: 'A chance to win all-inclusive surf trip to NZ upon purchase.',
         navBtnClss: 'carousel_nav_btn',
         navBtnID: 'carousel_nav_btn4',
         currentNav: false,

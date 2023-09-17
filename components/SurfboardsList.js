@@ -20,7 +20,7 @@ export default function SurfboardsList () {
                         height={board.imgH}
                     />
                 </Link>
-                <p>JOSH HALL PISEAS</p>
+                <p>{board.name}</p>
             </div>
         )
     })

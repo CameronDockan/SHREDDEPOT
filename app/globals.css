@@ -105,7 +105,9 @@ nav ul li ul li a:hover {
     display: none;
 }
 
-.burger div {
+.burger .line1,
+.burger .line2,
+.burger .line3 {
     display: none;
 }
 
@@ -145,6 +147,7 @@ nav ul li ul li a:hover {
 
     .logo {
         margin: auto;
+
     }
 
     .nav_links_ul {
@@ -155,14 +158,23 @@ nav ul li ul li a:hover {
         cursor: pointer;
         display: block;
         position: relative;
-        border: 1px solid blue;
+        /* border: 1px solid blue; */
         aspect-ratio: 1/1;
         width: 50px;
-        margin-right: 15px;
+        margin-right: 50px;
         z-index: 56;
     }
 
-    .burger div {
+    .burger.active,
+    .burger.inactive {
+        flex-shrink: 0;
+
+
+    }
+
+    .burger .line1,
+    .burger .line2,
+    .burger .line3 {
         display: block;
         width: 40px;
         height: 5px;
@@ -245,28 +257,29 @@ nav ul li ul li a:hover {
         align-items: center;
         justify-content: center;
         text-align: center;
-        background-color: aliceblue;
+        /* background-color: rgb(88, 172, 246); */
         /* border: 2px solid rgb(255, 0, 0); */
-        border-radius: 50%;
+        /* border-radius: 50%; */
         aspect-ratio: 1/1;
         position: absolute;
         top: 100%;
-        left: 50%;
-        transform: translate(50%, -75%);
-        height: 20px;
-        width: 20px;
+        left: 70%;
+        transform: translate(50%, -90%);
+        height: 30px;
+        width: 30px;
         padding: 0;
         margin: 0;
+        text-align: center;
     }
 
-    /* ran into a centering bug so I just used 
-    postion:absolute and hard-placed it */
     #cart_quantity_container p {
-        position: absolute;
-        top: calc(100% - 5px);
-        left: calc(50% - 12px);
-        transform: translate(50%, -75%);
+        /* background-color: red; */
+        text-align: center;
+        width: 100%;
+    }
 
+    #cart_quantity_container_invisible {
+        display: none;
     }
 
     /* decoy.active prevents the body of content from filling up
@@ -323,6 +336,11 @@ nav ul li ul li a:hover {
 
 } /* END OF @MEDIA */
 
+@media screen and (max-width: 397px) {
+    .mobile_ul {
+        top: 100px;
+    }
+}
 
 
 /* -- CAROUSEL -- */
@@ -336,9 +354,26 @@ nav ul li ul li a:hover {
     aspect-ratio: 2/1;
 }
 
+.carousel_button {
+    background-color: rgba(0,0,0,0);
+    border-radius: 50%;
+    border: 4px solid aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.carousel_button.mDown {
+    background-color: aliceblue;
+}
+
 #carousel_button_left {
     position: absolute;
     top: 50%;
+    left: 5px;
     transform: translateY(-50%);
     font-size: 2em;
     cursor: pointer;
@@ -348,7 +383,7 @@ nav ul li ul li a:hover {
 #carousel_button_right {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 5px;
     transform: translateY(-50%);
     font-size: 2em;
     cursor: pointer;
@@ -381,8 +416,10 @@ nav ul li ul li a:hover {
     top: 0;
     margin-top: 15px;
     transition: all .5s ease 0s;
-    border: solid black;
-    border-radius: 10px;
+    /* border: solid 3px black; */
+    border-radius: 15px;
+    /* supposed to solve safari's overflow hidden border radius bug */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 
 }
 
@@ -393,13 +430,17 @@ nav ul li ul li a:hover {
     margin: auto;
     display: block;
     position: relative;
+    border-radius: 15px;
+    border: solid 3px black;
+
 }
 
 
 .carousel_slide h1 {
     color: aliceblue;
     font-family: 'Tangerine', 'Montserrat', sans-serif;
-    font-size: 3em;
+    /* font-size: 3em; */
+    font-size: clamp(12px, 5vw, 50px);
     padding: 10px;
     position: absolute;
     top: 0;
@@ -456,7 +497,8 @@ nav ul li ul li a:hover {
 
 #product_img_links_title a {
     text-decoration: none;
-    font-size: 35px;
+    /* font-size: 35px; */
+    font-size: clamp(12px, 4vw, 40px);
     font-weight: 600;
     color: black;
 }
@@ -502,7 +544,8 @@ nav ul li ul li a:hover {
     border-radius: 10px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2.5em;
+    /* font-size: 2.5em; */
+    font-size: clamp(12px, 4vw, 40px);
     padding: 0 5px;
     background-color: rgba(0, 0, 0, .5);
     color: aliceblue;
@@ -529,6 +572,8 @@ nav ul li ul li a:hover {
     text-align: center;
     letter-spacing: 2px;
     font-style: italic;
+    font-size: clamp(12px, 4vw, 40px);
+    font-weight: 600;
     margin: 10px 0;
 }
 
@@ -558,7 +603,7 @@ nav ul li ul li a:hover {
     width: 25%;
 }
 
-.new_arrivals_img_div:hover a {
+.new_arrivals_img_div:hover p {
     font-weight: bolder;
     color: rgb(18, 18, 59);
     text-decoration: none;
@@ -571,10 +616,21 @@ nav ul li ul li a:hover {
     border-radius: 10px;
 }
 
-.new_arrivals_img_div a {
+.new_arrivals_img_div p {
     white-space: nowrap;
     text-decoration: none;
     color: black;
+
+    /* single-line ellipsis */
+    /* need to be block or inline-block */
+    /* need width */
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+
 }
 
 /* -- FOOTER -- */
@@ -599,27 +655,51 @@ nav ul li ul li a:hover {
     color: black;
     color: aliceblue;
     letter-spacing: .2rem;
+    font-size: clamp(18px, 3vw, 28px);
+}
+/* CENTER GRID BY UL GRID AND LI FLEX */
+@media screen and (max-width: 450px) {
+    #footer_internal_links_ul {
+        display: grid;
+        grid-gap: 5px;
+        /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #footer_internal_links_ul li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
 }
 
 #footer_internal_links_ul li a:hover {
- color: dimgray;
+    transition: all .25s ease;
+    color: bisque;
 }
 
 #footer_icons_ul {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     list-style: none;
     font-size: 2em;
     background-color: black;
+    /* border: 1px solid blue; */
 }
 
 #footer_icons_ul li {
-    margin: 10px;
+    margin: 10px 20px;
     background-color: aliceblue;
     padding: 12px 20px;
     padding-top: 17px;
-
     border-radius: 50%;
+}
+
+#footer_icons_ul li:hover {
+    transition: all .25s ease;
+    background-color: bisque;
 }
 
 #footer_icons_ul li a {
@@ -627,20 +707,25 @@ nav ul li ul li a:hover {
     color: black;
 }
 
+@media screen and (max-width: 850px) {
+    #footer_icons_ul li {
+        padding: 6px 8px;
+        padding-bottom: 0;
+    }
+}
+
 #company_address {
     text-align: center;
-    padding: 10px 10px;
+    padding: 15px;
     padding-bottom: 7px;
-    font-weight: bold;
     color: aliceblue;
     letter-spacing: .2rem;
 }
 
 #copyright_display {
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     padding-top: 0;
-    font-weight: bold;
     color: aliceblue;
 }
 
@@ -726,6 +811,12 @@ nav ul li ul li a:hover {
 
 .product_items_img_div p {
     text-align: center;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-overflow: ellipsis;
+
 }
 
 .product_items_img_div:hover {
@@ -1147,13 +1238,11 @@ TEXT TO MOVE INDEPENDENT OF TRANSPARENT BACKGROUND OF TEXT_WRAPPER*/
 
 .full_item_container {
     display: flex;
-    width: 100%;
     justify-content: center;
-    flex-direction: row; 
+    flex-direction: row;
+    width: 100%;
     border-bottom: 3px solid rgba(0, 0, 0, .3);
     padding: 15px 0;
-
-
 }
 
 .full_item_container > * {
@@ -1176,9 +1265,8 @@ TEXT TO MOVE INDEPENDENT OF TRANSPARENT BACKGROUND OF TEXT_WRAPPER*/
 
 
 .product_name_div {
-    padding-left: 5px;
+    padding: 10px;
     font-size: 25;
-    padding-top: 10px;
     text-align: center;
 }
 
@@ -1190,9 +1278,9 @@ TEXT TO MOVE INDEPENDENT OF TRANSPARENT BACKGROUND OF TEXT_WRAPPER*/
 }
 
 .quantity_ORG {
+    padding: 10px;
     font-size: 20px;
     text-align: center;
-    padding-top: 10px;
     /* border: 1px solid red; */
     display: flex;
     align-items: flex-start;
@@ -1203,37 +1291,27 @@ TEXT TO MOVE INDEPENDENT OF TRANSPARENT BACKGROUND OF TEXT_WRAPPER*/
     aspect-ratio: 1/1;
     width: 30px;
     border-radius: 50%;
-    border: 2px solid black;
-    background-color: aliceblue;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .quantity_ORG > span {
     margin: 0 10px;
 }
 
-.decrement_btn,
-.increment_btn,
-.clear_btn {
-    cursor: pointer;
-}
-.remove_btn:hover {
-    cursor:pointer
-}
-
 .total_ORG {
+    padding: 10px;
     display: block;
     font-size: 20px;
-    padding-top: 10px;
     text-align: center;
 }
 
 .remove_from_cart {
+    padding: 10px;
     display: block;
     font-size: 20px;
-    padding-top: 10px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -1242,12 +1320,34 @@ TEXT TO MOVE INDEPENDENT OF TRANSPARENT BACKGROUND OF TEXT_WRAPPER*/
 .remove_from_cart > button {
     aspect-ratio: 1/1;
     width: 30px;
-    background-color: aliceblue;
     border-radius: 50%;
-    border: 2px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.decrement_btn,
+.increment_btn,
+.clear_btn {
+    border: 2px solid black;
+    background-color: rgba(0,0,0,.4);
+    color: bisque;
+    cursor: pointer;
+}
+.down {
+    background-color: aliceblue;
+}
+
+@media screen and (max-width:630px) {
+
+    .shopping_cart_title_container {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .full_item_container {
+        flex-wrap: wrap;
+    }
 }
 
 .sub_check_proper_flex {
