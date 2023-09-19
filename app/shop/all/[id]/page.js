@@ -3,23 +3,20 @@
 import products from "@/public/productData"
 import Nav from "@/components/Nav"
 import Footer from "@/components/Footer"
-// import { useEffect } from "react"
 import Link from 'next/link'
 import Image from "next/image"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../../../globalRedux/features/cart/cartSlice"
 
 export function generateStaticParams() {
-
     const prodIDs = products.map(prod => {
         return (
             {id: `product${prod.id}`}
         )
     })
-
+    
     return prodIDs
     // return [{ id: '1' }, { id: '2' }, { id: '3' }]
-
 }
 
 export default function Page ({params}) {
