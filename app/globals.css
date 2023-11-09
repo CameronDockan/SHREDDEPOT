@@ -135,7 +135,7 @@ nav ul li ul li a:hover {
     background-color: rgba(0,0,0,.0);
 }
 
-@ screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
 
     .primary_nav.active {
         position: fixed;
@@ -307,6 +307,7 @@ nav ul li ul li a:hover {
         align-items: center;
         list-style: none;
         transition: opacity .5s ease;
+        border: 2px solid black;
     }
 
     .mobile_ul.inactive {

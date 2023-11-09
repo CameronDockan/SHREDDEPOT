@@ -1,39 +1,21 @@
 "use client"
 
 import products from "@/public/productData"
-import Nav from "@/components/Nav"
-import Footer from "@/components/Footer"
 import Link from 'next/link'
 import Image from "next/image"
 import { useDispatch, useSelector } from "react-redux"
-import { addToCart } from "../../../globalRedux/features/cart/cartSlice"
+import { addToCart } from "@/app/globalRedux/features/cart/cartSlice"
 
-export function generateStaticParams() {
-    const prodIDs = products.map(prod => {
-        return (
-            {id: `product${prod.id}`}
-        )
-    })
-    
-    return prodIDs
-    // return [{ id: '1' }, { id: '2' }, { id: '3' }]
-}
+const ProductDetails = ({pID}) => {
 
-export default function Page ({params}) {
-
-    const cartItems = useSelector(state => state.cartItems)
-    const totalQuantity = useSelector(state => state.totalQuantity)
-    const totalPrice = useSelector(state => state.totalPrice)
+    // const cartItems = useSelector(state => state.cartItems)
+    // const totalQuantity = useSelector(state => state.totalQuantity)
+    // const totalPrice = useSelector(state => state.totalPrice)
     const dispatch = useDispatch()
-    const {id} = params
-
-    // useEffect(() => {
-    //     console.log(numbOfProducts)
-    // })
 
     const selectedProdArr = products.filter(prod => {
         let prodID = `product${prod.id}`
-        if (id === prodID) return true
+        if (pID === prodID) return true
     })
 
     // const selectedProd = selectedProdArr[0]
@@ -126,16 +108,14 @@ export default function Page ({params}) {
             </div>
         )
     })
-  
 
     return (
-        <main>
-            <Nav />
-            {/* <div>{id}</div> */}
+        <>
             {prodNav}
             {prodInfo}
-            <Footer />
-        </main>
+            {pID}
+        </>
     )
-     
 }
+
+export default ProductDetails

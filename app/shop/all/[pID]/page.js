@@ -1,35 +1,31 @@
 import products from "@/public/productData"
 import Nav from "@/components/Nav"
 import Footer from "@/components/Footer"
-import LeashesDetails from "@/components/LeashesDetails"
-
-const leashes = products.filter(prod => {
-    if (prod.leash === true) return true
-})
+import ProductDetails from "@/components/ProductDetails"
 
 export function generateStaticParams() {
-
-    const leashIDs = leashes.map(leash => {
+    
+    const prodIDs = products.map(prod => {
         return (
-            {leashID: `leash${leash.leashID}`}
+            {pID: `product${prod.id}`}
         )
     })
-
-    return leashIDs
+    
+    return prodIDs
 }
 
 export default function Page ({params}) {
 
-
-    const {leashID} = params
+    const {pID} = params
 
     return (
         <main>
             <Nav />
-            <LeashesDetails
-            leashID={leashID}
+            <ProductDetails
+            pID={pID}
             />
             <Footer />
         </main>
     )
+     
 }
